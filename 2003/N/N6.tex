@@ -1,0 +1,29 @@
+% June 17, 2022
+
+\begin{problem}
+    Let $p$ be a prime number. Prove that there exists a prime number $q$ such
+    that for every integer $n$, the number $n^p-p$ is not divisible by $q$.
+\end{problem}
+
+\begin{solution}
+    Let $q$ be a prime number that divides $\Phi_p(p) = \tfrac{p^p-1}{p-1}$
+    where $q \not\equiv 1 \pmod{p^2}$. We claim this $q$ satisfies the statement.
+
+    It is known (a property of cyclotomic polynomials) that if $q \mid \Phi_p(p)$,
+    then $q \equiv 1 \pmod p$ and $\ord_q(p) = p$. A prime $q$ with
+    $q \not\equiv 1 \pmod{p^2}$ must exist since otherwise, all prime divisors
+    of $\Phi_p(p)$ would be $1 \bmod p^2$ and their product (including multiplicity)
+    would be $1 \pmod{p^2}$; however
+    \[\Phi_p(p) = p^{p-1} + p^{p-2} + \cdots + p^2 + p + 1 \equiv p+1 \not\equiv 1 \pmod{p^2},\]
+    so this is impossible.
+
+    We have that the order of $p$ modulo $q$ is $p$, so $p^p \equiv 1 \pmod q$.
+    We know $q \equiv 1 \pmod p$, so let $q = pk+1$. Note that $p^2 \nmid q-1 = pk$
+    implies $p \nmid k$, which also means $p^k \not\equiv 1 \pmod q$.
+
+    For $n^p \equiv p \pmod q$ to not have a solution, $p$ cannot be a $p\th$
+    power modulo $q$. We claim it isn't. Assume FTSOC that it is, so there is
+    some $n_0$ where $n_0^p \equiv p \pmod q$. Raise both sides to the $k\th$
+    power to get $n_0^{pk} \equiv p^k \pmod q$, but the LHS is $1 \pmod q$ and
+    the RHS is \textit{not} $1 \pmod q$ so we are done. $\square$
+\end{solution}

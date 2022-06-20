@@ -1,0 +1,36 @@
+% June 18, 2022
+
+\begin{problem}[ISL 2011 C1]
+    Let $n > 0$ be an integer. We are given a balance and $n$ weights
+    of weight $2^0, 2^1, \cdots, 2^{n-1}$. We are to place each of the
+    $n$ weights on the balance, one after another, in such a way that
+    the right pan is never heavier than the left pan. At each step we
+    choose one of the weights that has not yet been placed on the balance,
+    and place it on either the left pan or the right pan, until all of
+    the weights have been placed. \\
+    Determine the number of ways in which this can be done.
+\end{problem}
+
+\begin{solution}
+    Let $f(k)$ be the number of ways when $n=k$.
+
+    We claim that \[f(n) = (2n-1)!! = \prod_{k=1}^n (2k-1).\]
+    We prove via induction, with the base case $n=1$ being obvious.
+
+    Now we consider when the $2^0$ weight is placed. If it is placed
+    first, it can only go on the left pan, and otherwise it can go on
+    either pan.
+
+    After the $2^0$ weight is fixed, the other weights can go in all
+    the $f(n-1)$ ways. This is because the only way it \textit{wouldn't}
+    work is if the $2^0$ weight is placed on the right pan when the
+    two pans have equal nonzero weight. However, the two pans having
+    equal weight is impossible, which is easily proven by noting that
+    \[2^k > 2^{k-1} + \cdots + 2^1 + 2^0 = 2^k-1,\]
+    so whichever pan has the largest weight is always heavier.
+    
+    This yields $2n-1$ ways to put the $2^0$ weight, each of which
+    has $f(n-1)$ ways to place the $n-1$ other weights, so
+    \[(2n-1) \cdot f(n-1) = (2n-3)!! \cdot (2n-1) = (2n-1)!!\]
+    as desired. $\square$
+\end{solution}

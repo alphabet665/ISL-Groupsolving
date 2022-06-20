@@ -1,0 +1,45 @@
+% December 2021
+
+\begin{problem}[ISL 2002 C1]
+    Let $n$ be a positive integer. Each point $(x,y)$ in the plane, where $x$ and $y$ are non-negative integers with $x+y<n$, is coloured red or blue, subject to the following condition: if a point $(x,y)$ is red, then so are all points $(x',y')$ with $x'\leq x$ and $y'\leq y$. Let $A$ be the number of ways to choose $n$ blue points with distinct $x$-coordinates, and let $B$ be the number of ways to choose $n$ blue points with distinct $y$-coordinates. Prove that $A=B$.
+\end{problem}
+
+\begin{solution}
+    Note that $\displaystyle{A=\prod_{x=0}^{n-1}h(x)}$ and $\displaystyle{B=\prod_{y=0}^{n-1}w(y)}$ where $h(c)$ denotes the number of blue points with $x=c$ and $w(c)$ similarly for the number of blue points where $y=c$.
+    
+    Consider taking a coloring of points like one in the statement, and "extending" it. We will show that:
+    
+    \begin{enumerate}
+      \item The multiset $\{\,h(x) \mid 0\leq x<n\,\}$ is equal to $\{\,w(y) \mid 0\leq y<n\,\}$. Note that this preserves $A=B$.
+      \item We can get to any coloring with this extension
+    \end{enumerate}
+    
+    \large Part 1: Preservation of $A=B$ \small
+    
+    Assume that we color the originally blue point $(x,y)$ to red, and that this recoloring preserves the condition where $(x',y')$ is red for all $x'\leq x$ and $y'\leq y$ if $(x,y)$ is red.
+    
+    Now, we must have that
+    
+    \begin{itemize}
+      \item $(x',y)$ is blue for all $x'>x$ and $x'+y<n$
+      \item $(x,y')$ is blue for all $y'>y$ and $x+y'<n$
+    \end{itemize}
+    
+    because otherwise, we would have had a red point either above or to the right of $(x,y)$, originally a blue point, which doesn't satisfy our original condition.
+    
+    Now, note that the number of points colored either red of blue with $x$-coordinate $x$ is $n-x$, and similarly the number of points of either color with $y$-coordinate $y$ is $n-y$. Thus, $h(x) = n-x-y$ and $w(y) = n-y-x$ before the change. Note that $h(x)=w(y)=n-x-y$. After the change, each of $h(x)$ and $w(y)$ decreases by exactly one, so we still have $h(x)=w(y)=n-x-y+1$. Therefore, our products for $A$ and $B$ stay the same.
+    
+    Obviously, if no points are red, then we have $A=B$ by symmetry; just swap the $x$ and $y$-coordinates around.
+    
+    Therefore, if we can use our "extension" to get to every coloring that satisfies our original condition, then we have $A=B$ for all such colorings.
+    
+    \large Part 2: Getting to every coloring \small
+    
+    We will present an algorithm to start with no red points and add new red points such that our original condition is always satisfied, in such a way to get to the desired coloring.
+    
+    Sort the red points so that the value $x+y$ is nondecreasing for all points $P(x,y)$ in our ordering. For example, $\{(0,2),(1,0),(0,0),(0,1)\}$ would be sorted to become $[(0,0),(0,1),(1,0),(0,2)]$. Note that the ordering of points where $x+y=c$ for some fixed $c$ does not matter; $[(0,0),(1,0),(0,1),(0,2)]$ is also a valid ordering.
+    
+    Now, notice that this ordering of points to add will always preserve our original condition. When we add some point $(x,y)$, $(x-1,y)$ and $(x,y-1)$ would both be earlier in our ordering, so if $(x-1,y)$ was colored, and colored red, then we would have already added it. The same is true for $(x,y-1)$.
+    
+    Therefore, this ordering of points is valid, so we can always construct any coloring of points by "extending" our current coloring and starting with no red points. Because each extension preserves $A=B$, we know that $A=B$ in our final coloring. $\square$
+\end{solution}

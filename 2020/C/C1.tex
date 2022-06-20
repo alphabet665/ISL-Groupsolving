@@ -1,0 +1,17 @@
+% May 2022
+
+\begin{problem}[ISL 2020 C1]
+    For a fixed positive integer $n$, find the number of permutations $a$ of $1, 2, \ldots, n$ with \[a_1 \leq 2a_2 \leq 3a_3 \leq \cdots \leq na_n.\]
+\end{problem}
+
+\begin{solution}
+    We claim the answer is $F_n$, the $n\th$ Fibonacci number ($F_0 = F_1 = 1$, $F_n = F_{n-1} + F_{n-2}$). We will use induction.
+    
+    Let $W_n$ be the number of ways for $n$. The base case is obvious: note $W_1 = 1$ and $W_2 = 2$.
+    
+    Now for the induction step, if we can show that either $(a_{n-1}, a_n)$ is either $(n-1, n)$ or $(n, n-1)$, we will be done (since that proves $W_n = W_{n-1} + W_{n-2}$). Put $n$ at some $a_{n-k}$, where $k \geq 2$. We have \begin{center} \begin{tabular}{c|c c c c}
+        $a_i$ & $n$   & $\ldots$ & $x$   & $y$\\
+        $i$   & $n-k$ & $\ldots$ & $n-1$ & $n$
+    \end{tabular} \end{center}
+    Note that any $v < n-k$ cannot be placed at an index higher than $n-k$ (since then $i \cdot (n-k) < n(n-k)$, contradiction). Thus, every value $n-k \leq v < n$ must be placed after index $n-k$. Note that if $n-k$ is anywhere except $a_n$, we get a contradiction. So $a_n = n-k$, but then $n-k+1$ cannot be placed anywhere. Therefore, this is impossible and we are done. $\square$
+\end{solution}

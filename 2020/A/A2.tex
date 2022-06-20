@@ -1,0 +1,22 @@
+% May 2022
+
+\begin{problem}[ISL 2020 A2]
+    Let $\mathcal A$ denote the set of all polynomials in three variables $x, y, z$ with integer coefficients. Let $\mathcal B$ denote the subset of $\mathcal A$ formed by all polynomials which can be expressed as \[ (x+y+z)P(x,y,z) + (xy+yz+zx)Q(x,y,z) + xyzR(x,y,z) \] with $P,Q,R \in \mathcal A$.  Find the smallest non-negative integer $n$ such that $x^i y^j z^k \in \mathcal B$ for all non-negative integers $i, j, k$ satisfying $i + j + k \geq n$.
+\end{problem}
+
+\begin{solution}
+    We claim the answer is $n = 4$.
+    
+    To prove this, we first note that if $x^iy^jz^k \in \mathcal B$, then $x^iy^jz^k \cdot f \in \mathcal B$ where $f \in \mathcal A$, just by multiplying each of $P$, $Q$, and $R$ by $f$. Also similarly, if $f, g \in \mathcal B$, then $f+g \in \mathcal B$.
+    
+    Thus, if we can show that $x^2y \not\in \mathcal B$ and $x^4, x^3y, x^2y^2, x^2yz \in \mathcal B$, we will be done.
+    
+    First, note $xyz \in \mathcal B$ (with $P = Q = 0$, $R = 1$) means $x^2yz \in \mathcal B$. Also, note $x^3 \in \mathcal B$, with \[(x+y+z) \cdot (x^2) + (xy+yz+zx) \cdot (-x) + xyz \cdot (1) = x^3,\] we have $x^4, x^3y \in \mathcal B$. Finally, with \[(x+y+z) \cdot (0) + (xy+yz+zx) \cdot (xy) + xyz \cdot (-x-y) = x^2y^2,\] we know $x^2y^2 \in \mathcal B$.
+    
+    Now, we need to show $x^2y \not\in \mathcal B$. Note that the constant in $P$ must be $0$. Now, note that the coefficients of each $x$, $y$, $z$ in $P$ must be $0$, since it is impossible to get $x^2$ (or symmetric) in any way. Thus, we let \[P(x,y,z) = axy + byz + czx + F(x,y,z), \quad Q(x,y,z) = ex + fy + dz + G(x,y,z),\] where $F$ has only terms of degree at least $3$, and $G$ has only terms of degree at least $2$. Now we only consider terms like $x^2y$ (and symmetric counterparts), to get the system of equations \begin{align*}
+        a+e=1,~~~ & ~~~a+f=0\\
+        b+f=0,~~~ & ~~~b+d=0\\
+        c+d=0,~~~ & ~~~c+e=0
+    \end{align*}
+    However solving this system while ignoring $a+e=1$, we get \[(a,b,c,d,e,f) = (a,a,a,-a,-a,-a),\] but now $a+e=0\neq1$, so it is impossible. $\square$
+\end{solution}

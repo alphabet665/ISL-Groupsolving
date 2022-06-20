@@ -1,0 +1,20 @@
+% June 2022
+
+\begin{problem}[ISL 2018 N2]
+    Let $n>1$ be a positive integer. Each cell of an $n\times n$ table contains an integer. Suppose that the following conditions are satisfied:
+    \begin{enumerate}
+          \item Each number in the table is congruent to $1$ modulo $n$.
+          \item The sum of numbers in any row, as well as the sum of numbers in any column, is congruent to $n$ modulo $n^2$.
+    \end{enumerate}
+    Let $R_i$ be the product of the numbers in the $i^{\text{th}}$ row, and $C_j$ be the product of the number in the $j^{\text{th}}$ column. Prove that the sums $R_1 + \cdots + R_n$ and $C_1 + \cdots + C_n$ are congruent modulo $n^4$.
+\end{problem}
+
+\begin{solution}
+    Let the value in the $i\th$ row and $j\th$ column be $a_{i,j} = 1 + n \cdot k_{i,j}$, and we know \[\sum_{j=1}^n a_{i,j} = \sum_{j=1}^n (1 + n \cdot k_{i,j}) = n + n \sum_{j=1}^n k_{i,j} \equiv n\!\!\!\! \pmod{n^2} \implies \sum_{j=1}^n k_{i,j} \equiv 0\!\!\!\! \pmod n.\] Note that \begin{align*}
+        R_i &= 1 + n \sum_{j=1}^n k_{i,j} + n^2 \sum_{j_1<j_2} k_{i,j_1}k_{i,j_2} + n^3 \sum_{j_1<j_2<j_3} k_{i,j_1}k_{i,j_2}k_{i,j_3} + O(n^4)\\
+        &= 1 + n\sum_{j=1}^nk_{i,j} + n^2 \cdot \frac12\bigg(\bigg(\sum_{j=1}^nk_{i,j}\bigg)^2 - \sum_{j=1}^nk_{i,j}^2\bigg)\\
+        &+ n^3 \cdot \frac16\bigg(\bigg(\sum_{j=1}^nk_{i,j}\bigg)^3 - 3\bigg(\sum_{j=1}^nk_{i,j}^2\bigg)\bigg(\sum_{j=1}^nk_{i,j}\bigg) + 2\bigg(\sum_{j=1}^nk_{i,j}^3\bigg)\bigg) + O(n^4)\\
+        &\equiv 1 + n\sum_{j=1}^nk_{i,j} - \frac{n^2}{2}\sum_{j=1}^n k_{i,j}^2 + \frac{n^3}{3}\sum_{j=1}^n k_{i,j}^3 \pmod{n^4}
+    \end{align*}
+    We get a similar expression for $C_j$, and note that when summing over all $i$ (or $j$), we add the same terms over rows and columns, so they are equal and we are done. $\square$
+\end{solution}

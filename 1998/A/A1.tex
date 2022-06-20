@@ -1,0 +1,30 @@
+% June 2022
+
+\begin{problem}[ISL 1998 A1]
+    Let $(a_i)_{i=1}^n$ be a sequence of positive reals where $a_1+a_2+\cdots +a_n<1$. Prove
+    \[\frac{a_1 a_2 \cdots a_n [1 - (a_1 + a_2 + \cdots + a_n)]}{(a_1 + a_2 + \cdots + a_n)(1 - a_1)(1 - a_2) \cdots (1 - a_n)} \leq \frac{1}{n^{n+1}}.\]
+\end{problem}
+
+\begin{solution}
+    Define $S = \sum_{i=1}^n a_i < 1$, and we want
+    \[\frac{a_1}{1-a_1} \cdot \frac{a_2}{1-a_2} \cdots \frac{a_n}{1-a_n} \cdot \frac{1-S}{S} \leq \frac{1}{n^{n+1}}.\]
+    By AM-GM,
+    \[\frac{a_1}{1-a_1} \cdot \frac{a_2}{1-a_2} \cdots \frac{a_n}{1-a_n} \leq \frac{1}{n^n} \cdot \bigg(\frac{a_1}{1-a_1} + \frac{a_2}{1-a_2} + \cdots + \frac{a_n}{1-a_n}\bigg),\]
+    so we want to prove
+    \[\bigg(\frac{a_1}{1-a_1} + \frac{a_2}{1-a_2} + \cdots + \frac{a_n}{1-a_n}\bigg)^n \cdot \frac{1-S}{S} \leq \frac1n.\]
+    Note that if $f(x) = \tfrac{x}{1-x}$, then $f''(x) = 2(1-x)^{-3} > 0$ so $f$ is convex. Sort the sequence $a$ in nondecreasing order, so that $a_i \leq a_{i+1}$. Define a sequence $(b_i)_{i=1}^n$ as $b_1 = S-(n-1)t$ and $b_i = t$ for $i \geq 2$ where $t = \tfrac{S-a_1}{n-1}$, and note that $(b_i) \succ (a_i)$. We apply Karamata, which says
+    \[\frac{a_1}{1-a_1} + \frac{a_2}{1-a_2} + \cdots + \frac{a_n}{1-a_n} \leq \frac{b_1}{1-b_1} + \frac{b_2}{1-b_2} + \cdots + \frac{b_n}{1-b_n}.\]
+    We want to prove
+    \[\bigg(\frac{S-(n-1)t}{1-S+(n-1)t} - (n-1) \cdot \frac{t}{1-t}\bigg)^n \cdot \frac{1-S}{S} \geq \frac1n.\]
+    Define
+    \[g(t) = (n-1) \cdot \frac{t}{1-t} + \frac{S-(n-1)t}{1-S+(n-1)t} = (n-1) \cdot \frac{1}{1-t} + \frac{1}{1-S+(n-1)t} - n,\]
+    and note that
+    \[g'(t) = \frac{n-1}{(1-t)^2} - \frac{n-1}{(1-S+(n-1)t)^2}\]
+    is $0$ when $1-t = 1-S+(n-1)t \Longleftrightarrow t = S/n$, which means $(a_i)$ is constant. Also $t=0$ and $t=1$ are impossible since $S < 1$ and $a_1 > 0$.
+    
+    We want to prove
+    \[\bigg(n \cdot \frac{S/n}{1-S/n}\bigg)^n \cdot \frac{1-S}{S} = \frac{S^{n-1}(1-S)}{(1-S/n)^n} \leq \frac1n \tag{$*$}\]
+    Define
+    \[h(S) = \frac{S^{n-1}(1-S)}{(1-S/n)^n}, \qquad h'(S) = \frac{(n-1)S^{n-2}}{(1-S/n)^{n+1}} \cdot \bigg(1 - \frac{n+1}{n} \cdot x\bigg),\]
+    which is only $0$ when $x = \tfrac{n}{n+1}$. Plugging this in, we get equality in ($*$) so we are done. $\square$
+\end{solution}

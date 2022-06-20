@@ -1,0 +1,9 @@
+% April 2022
+
+\begin{problem}[ISL 2006 N2]
+    For $x \in (0, 1)$ let $y \in (0, 1)$ be the number whose $n$-th digit after the decimal point is the $2^n$-th digit after the decimal point of $x$. Show that if $x$ is rational then so is $y$.
+\end{problem}
+
+\begin{solution}
+    Let the period of $x$ when expressed in decimal be $m$. If we can show that eventually, the digits in $y$ repeat, we will be done. However this is easy since $2^n$ is periodic for any modulus (if $m$ is a power of two, it becomes $0$; otherwise $2^n$ repeats with a period of $\ord_k(2)$ where $k = m/2^{\nu_2(m)}$) so we are done. $\square$
+\end{solution}
