@@ -2,9 +2,15 @@
 
 \begin{problem}[ISL 2000 A1]
     Let $a$, $b$, $c$ be positive real numbers so that $abc = 1$. Prove that
-    \[\left(a - 1 + \frac 1b \right) \left(b - 1 + \frac 1c \right) \left(c - 1 + \frac 1a \right) \leq 1\]
+    \[\bigg(a-1+\frac1b\bigg) \bigg(b-1+\frac1c\bigg) \bigg(c-1+\frac1a\bigg) \leq 1.\]
 \end{problem}
 
-\begin{solution}
-    Since $abc=1$, substitute \[(a, b, c) = \left(\frac xy, \frac yz, \frac zx\right)\] for positive $x$, $y$, $z$. We need to prove \[\prodcyc (x + y - z) \leq xyz\] Expanding, the inequality is really just \[\sumsym x^2y \leq x^3 + y^3 + z^3 + 3xyz\] which is the $r=1$ case of Schur's Inequality. $\square$
+\begin{solution}[Ritwin]
+    Since $abc=1$, substitute
+    \[(a, b, c) = \bigg(\frac xy, \frac yz, \frac zx\bigg)\]
+    for positive $x$, $y$, $z$. We need to prove
+    \[\prodcyc (x + y - z) \leq xyz.\]
+    Expanding, the inequality is really just
+    \[\sumsym x^2y \leq x^3 + y^3 + z^3 + 3xyz,\]
+    which is the $r=1$ case of Schur's Inequality. $\square$
 \end{solution}

@@ -1,15 +1,18 @@
 % May 2022
 
 \begin{problem}[ISL 2009 C2]
-    For any integer $n\geq 2$, let $N(n)$ be the maximum number of triples $(a_i, b_i, c_i)$, $i=1, \ldots, N(n)$, consisting of nonnegative integers $a_i$, $b_i$ and $c_i$ such that the following two conditions are satisfied: \begin{enumerate}[(a)]
+    For any integer $n\geq 2$, let $N(n)$ be the maximum number of triples
+    $(a_i, b_i, c_i)$, $i=1, \ldots, N(n)$, consisting of nonnegative integers
+    $a_i$, $b_i$ and $c_i$ such that the following two conditions are satisfied: \begin{enumerate}[(a)]
         \item $a_i+b_i+c_i=n$ for all $i=1, \ldots, N(n)$
         \item If $i\neq j$ then $a_i\neq a_j$, $b_i\neq b_j$ and $c_i\neq c_j$
     \end{enumerate}
     Determine $N(n)$ for all $n\geq 2$.
 \end{problem}
 
-\begin{solution}
-    We claim the answer is $\lfloor 2n/3 + 1 \rfloor$. This is achievable; for $n = 3k$, do the following:
+\begin{solution}[Ritwin and awesomehuman]
+    We claim the answer is $\lfloor 2n/3 + 1 \rfloor$. This is achievable; for
+    $n = 3k$, do the following:
     \begin{center}
     \begin{tabular}{c|c c c c c c c c c c c c c}
         $i$   & $1$ & $2$ & \ldots & $k$ & $k+1$ & $k+2$ & $k+3$ & \ldots & $2k$ & $2k+1$\\\hline
@@ -20,7 +23,14 @@
     \end{center}
     For $n = 3k+1$, just add $1$ to each of $a_i$ (since $N(3k+1) = N(3k) = 2k+1$).
     
-    For $n = 3k+2$, add $1$ to each of $a_i$ and $b_i$ for the solution of $N(3k)$, and let $a_{2k+2} = b_{2k+2} = 0, c_{2k+2} = n$, so $N(n) = 2k+2$ as intended.
+    For $n = 3k+2$, add $1$ to each of $a_i$ and $b_i$ for the solution of $N(3k)$,
+    and let $a_{2k+2} = b_{2k+2} = 0, c_{2k+2} = n$, so $N(n) = 2k+2$ as intended.
     
-    We now show that $N(n) \leq 2n/3+1$. Let $k=N(n)$. Since $a$, $b$, $c$ each have distinct numbers, the minimum possible sum for each sequence is $k(k-1)/2$. Thus the average sum of all the numbers is at least \[\frac1k \cdot \bigg(3 \cdot \frac{k(k-1)}{2}\bigg) = \frac32 \cdot (k-1).\] But note that the sum of all the numbers must be $kn$, so their average is $n$. Thus, we need \[n \geq \frac32 \cdot (k-1) \Longleftrightarrow k \leq \frac23n+1,\] which is the desired inequality. $\square$
+    We now show that $N(n) \leq 2n/3+1$. Let $k=N(n)$. Since $a$, $b$, $c$ each
+    have distinct numbers, the minimum possible sum for each sequence is $k(k-1)/2$.
+    Thus the average sum of all the numbers is at least
+    \[\frac1k \cdot \bigg(3 \cdot \frac{k(k-1)}{2}\bigg) = \frac32 \cdot (k-1).\]
+    But note that the sum of all the numbers must be $kn$, so their average is $n$.
+    Thus, we need \[n \geq \frac32 \cdot (k-1) \Longleftrightarrow k \leq \frac23n+1,\]
+    which is the desired inequality. $\square$
 \end{solution}

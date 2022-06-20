@@ -1,13 +1,25 @@
 % January 2022
 
 \begin{problem}[ISL 2020 N2]
-    For each prime $p$, construct a graph $G_p$ on $\{1,2,\ldots p\}$, where $m\neq n$ are adjacent if and only if $p$ divides $(m^2 + 1-n)(n^2 + 1-m)$. Prove that $G_p$ is disconnected for infinitely many $p$.
+    For each prime $p$, construct a graph $G_p$ on $\{1,2,\ldots p\}$, where
+    $m \neq n$ are adjacent if and only if $p$ divides $(m^2+1-n)(n^2+1-m)$.
+    Prove that $G_p$ is disconnected for infinitely many $p$.
 \end{problem}
 
-\begin{solution}
-    Note that we can reproduce the same edges by connecting $m \rightarrow m^2+1$. But if we have at least two values $m$ such that $m \equiv m^2+1 \pmod p$, then we will have at most $p-2$ edges and cannot connect all $p$ nodes together (which can be proven by considering that each edge reduces the number of connected components by either $0$ or $1$).
+\begin{solution}[Ritwin]
+    Note that we can reproduce the same edges by connecting $m \rightarrow m^2+1$.
+    But if we have at least two values $m$ such that $m \equiv m^2+1 \pmod p$,
+    then we will have at most $p-2$ edges and cannot connect all $p$ nodes
+    together (which can be proven by considering that each edge reduces the
+    number of connected components by either $0$ or $1$).
     
-    Note that $m^2-m+1 = \tfrac{m^3+1}{m+1}$, so $m \equiv m^2+1 \pmod p$ is equivalent to \[(-m)^3 \equiv 1 \pmod p\] when $m \neq p-1$, so we need $1$ to have at least $3$ distinct cube roots modulo $p$.
+    Note that $m^2-m+1 = \tfrac{m^3+1}{m+1}$, so $m \equiv m^2+1 \pmod p$ is
+    equivalent to \[(-m)^3 \equiv 1 \pmod p\] when $m \neq p-1$, so we need
+    $1$ to have at least $3$ distinct cube roots modulo $p$.
     
-    Consider $p = 3k+1$ (by Dirichlet's Theorem, there are infinitely many such primes). Then, $\varphi(p) = p-1 = 3k$ is a multiple of $3$. Gauss proved that if $p$ is a prime (amongst other cases), there exists a primitive root, call it $g$. Now, note that all of $g^0$, $g^k$, and $g^{2k}$ are cube roots of $1$ modulo $p$, so our proof is done. $\square$
+    Consider $p = 3k+1$ (by Dirichlet's Theorem, there are infinitely many such
+    primes). Then, $\varphi(p) = p-1 = 3k$ is a multiple of $3$. Gauss proved
+    that if $p$ is a prime (amongst other cases), there exists a primitive root,
+    call it $g$. Now, note that all of $g^0$, $g^k$, and $g^{2k}$ are cube roots
+    of $1$ modulo $p$, so our proof is done. $\square$
 \end{solution}

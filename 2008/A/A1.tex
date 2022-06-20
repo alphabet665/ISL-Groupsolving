@@ -1,11 +1,24 @@
 % May 2022
 
 \begin{problem}[ISL 2008 A1]
-    Find all functions $f : (0, \infty) \mapsto (0, \infty)$ such that \[ \frac{f(w)^2 + f(x)^2}{f(y^2) + f(z^2)} = \frac{w^2 + x^2}{y^2 + z^2} \] for all positive real numbers $w$, $x$, $y$, $z$ satisfying $wx = yz$.
+    Find all functions $f : (0, \infty) \mapsto (0, \infty)$ such that
+    \[ \frac{f(w)^2 + f(x)^2}{f(y^2) + f(z^2)} = \frac{w^2 + x^2}{y^2 + z^2} \]
+    for all positive real numbers $w$, $x$, $y$, $z$ satisfying $wx = yz$.
 \end{problem}
 
-\begin{solution}
-    We claim the two solutions are $f(x) = x$ and $f(x) = 1/x$, which work. We now show there are no other solutions.
+\begin{solution}[Ritwin]
+    We claim the two solutions are $f(x) = x$ and $f(x) = 1/x$, which work.
+    We now show there are no other solutions.
     
-    Substitute $x = y$ and $w = z$ to get \[\frac{f(w)^2 + f(x)^2}{f(x^2) + f(w^2)} = 1 \implies f(w^2) - f(w)^2 = f(x^2) - f(x)^2,\] which means $f(x^2) = f(x)^2$ and so $f(1) = 1$. Now put $(a,b,c,d) = (w^2, x^2, y^2, z^2)$ to get \[\frac{f(a)+f(b)}{f(c)+f(d)} = \frac{a+b}{c+d}. \tag{1}\] Now substitute $(a,b,c,d) = (t^2, 1, t, t)$ to simplify to \[t\bigg(f(t) - \frac1t\bigg)\bigg(f(t) - t\bigg) = 0 \implies f(t) \in \{1/t, t\}\] for all $t$. This is a pointwise trap, so assume $f(x) = x$ and $f(y) = 1/y$ where $x,y \neq 1$ and plug in $(a,b,c,d) = (1, xy, x, y)$ into (1) to get \[\frac{f(xy) + 1}{x + 1/y} = \frac{1 + xy}{x + y},\] which is false for either $f(xy) = xy$ or $f(xy) = \tfrac{1}{xy}$ since $x,y \neq 1$. Thus $f(x) = x$ and $f(x) = \frac1x$ are the only possible solutions.
+    Substitute $x = y$ and $w = z$ to get
+    \[\frac{f(w)^2 + f(x)^2}{f(x^2) + f(w^2)} = 1 \implies f(w^2) - f(w)^2 = f(x^2) - f(x)^2,\]
+    which means $f(x^2) = f(x)^2$ and so $f(1) = 1$. Now put $(a,b,c,d) = (w^2, x^2, y^2, z^2)$
+    to get \[\frac{f(a)+f(b)}{f(c)+f(d)} = \frac{a+b}{c+d}. \tag{1}\]
+    Now substitute $(a,b,c,d) = (t^2, 1, t, t)$ to simplify to
+    \[t\bigg(f(t) - \frac1t\bigg)\bigg(f(t) - t\bigg) = 0 \implies f(t) \in \{1/t, t\}\]
+    for all $t$. This is a pointwise trap, so assume $f(x) = x$ and $f(y) = 1/y$
+    where $x,y \neq 1$ and plug in $(a,b,c,d) = (1, xy, x, y)$ into (1) to get
+    \[\frac{f(xy) + 1}{x + 1/y} = \frac{1 + xy}{x + y},\]
+    which is false for either $f(xy) = xy$ or $f(xy) = \tfrac{1}{xy}$ since $x,y \neq 1$.
+    Thus $f(x) = x$ and $f(x) = \frac1x$ are the only possible solutions. $\square$
 \end{solution}

@@ -1,19 +1,35 @@
 % June 2022
 
 \begin{problem}[ISL 2016 C2]
-    Find all positive integers $n$ for which all positive divisors of $n$ can be put into the cells of a rectangular table under the following constraints: \begin{itemize}
+    Find all positive integers $n$ for which all positive divisors of $n$ can
+    be put into the cells of a rectangular table under the following constraints: \begin{itemize}
         \item each cell contains a distinct divisor;
         \item the sums of all rows are equal; and
         \item the sums of all columns are equal.
     \end{itemize}
 \end{problem}
 
-\begin{solution}
-    We claim the answer is only $n = 1$. This obviously works with just $\boxed{1}$, and we will show no other $n$ works below.
+\begin{solution}[Ritwin]
+    We claim the answer is only $n = 1$. This obviously works with just $\boxed{1}$,
+    and we will show no other $n$ works below.
     
-    Let there be a $r \times c$ rectangle, and WLOG assume $r \leq c$. Consider the column containing $n$; its sum must be at least $(r-1) + n$, so the whole grid must have sum at least $c(r-1+n) = n + c(n-1)$. Since $rc = n$ and $r \leq c$, we have $c \geq \sqrt n$ so we require $\sigma(n) \geq n + n \sqrt n - \sqrt n > n \sqrt n$, where the last inequality is true for all $n > 1$. We claim $\sigma(n) > n \sqrt n$ never occurs for any $n > 1$.
+    Let there be a $r \times c$ rectangle, and WLOG assume $r \leq c$. Consider
+    the column containing $n$; its sum must be at least $(r-1) + n$, so the whole
+    grid must have sum at least $c(r-1+n) = n + c(n-1)$. Since $rc = n$ and
+    $r \leq c$, we have $c \geq \sqrt n$ so we require
+    $\sigma(n) \geq n + n \sqrt n - \sqrt n > n \sqrt n$, where the last
+    inequality is true for all $n > 1$. We claim $\sigma(n) > n \sqrt n$ never
+    occurs for any $n > 1$.
     
-    Define $f(n) = \tfrac{\sigma(n)}{n\sqrt n}$, which is obviously multiplicative. As such, if we can prove that $f(p^k) < 1$ for all primes $p$ and positive integers $k$, then we know that $f(n) < 1 \Longleftrightarrow \sigma(n) < n \sqrt n$ for all $n > 1$ and we will be done. Note that \[f(p^k) = \frac{1}{p^{3k/2}} \cdot \frac{p^{k+1}-1}{p-1} < \frac{p^{k+1}-1}{p^{3k/2}} \leq p^{1-k/2} \leq 1\] for all $k \geq 2$. Also, $f(p) = \tfrac{p+1}{p \sqrt p} = \frac{1}{\sqrt p} + \frac{1}{p \sqrt p} < 1$ because both terms are less than $1/2$ for primes $p > 4$, and $p=3$ can be checked manually with $f(3) = \tfrac{4}{3\sqrt3} < 1$.
+    Define $f(n) = \tfrac{\sigma(n)}{n\sqrt n}$, which is obviously multiplicative.
+    As such, if we can prove that $f(p^k) < 1$ for all primes $p$ and positive
+    integers $k$, then we know that $f(n) < 1 \Longleftrightarrow \sigma(n) < n \sqrt n$
+    for all $n > 1$ and we will be done. Note that
+    \[f(p^k) = \frac{1}{p^{3k/2}} \cdot \frac{p^{k+1}-1}{p-1} < \frac{p^{k+1}-1}{p^{3k/2}} \leq p^{1-k/2} \leq 1\]
+    for all $k \geq 2$. Also, $f(p) = \tfrac{p+1}{p \sqrt p} = \frac{1}{\sqrt p} + \frac{1}{p \sqrt p} < 1$
+    because both terms are less than $1/2$ for primes $p > 4$, and $p=3$ can be
+    checked manually with $f(3) = \tfrac{4}{3\sqrt3} < 1$.
     
-    We have proven that for $n > 1$, $\sigma(n) < n \sqrt n$ so a construction is impossible. $\square$
+    We have proven that for $n > 1$, $\sigma(n) < n \sqrt n$ so a construction
+    is impossible. $\square$
 \end{solution}

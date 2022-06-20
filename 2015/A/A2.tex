@@ -1,19 +1,25 @@
 % April 2022
 
 \begin{problem}[ISL 2015 A2]
-    Determine all functions $f : \ZZ \to \ZZ$ with the property that \[f(x-f(y))=f(f(x))-f(y)-1\] holds for all $x,y \in \ZZ$.
+    Determine all functions $f : \ZZ \to \ZZ$ with the property that
+    \[f(x-f(y))=f(f(x))-f(y)-1\] holds for all $x,y \in \ZZ$.
 \end{problem}
 
-\begin{solution}
-    We claim the only two solutions are $f \equiv -1$ and $f(x) = x+1$, which work. We now show no other functions work.
+\begin{solution}[Ritwin]
+    We claim the only two solutions are $f \equiv -1$ and $f(x) = x+1$,
+    which work. We now show no other functions work.
     
     In this solution, we use the notation $f^k(n)$ to denote $f$ applied $k$ times on $n$.
     
-    Plug in $y = f(x)$ to get \[f(x - f^2(x)) = -1\] Now, plug in $y = f(x - f^2(x))$ to get \[f(x+1) = f^2(x)\] Finally, plug in $x = f(y)-1$ to get \begin{align*}
+    Plug in $y = f(x)$ to get \[f(x - f^2(x)) = -1.\]
+    Now, plug in $y = f(x - f^2(x))$ to get \[f(x+1) = f^2(x).\]
+    Finally, plug in $x = f(y)-1$ to get \begin{align*}
         f(-1) &= f^2(f(y)-1) - f(y) - 1\\
               &= f^2(y) - f(y) - 1\\
               &= f(y+1) - f(y) - 1
     \end{align*}
-    This implies $f$ is linear with slope $f(-1) + 1$. Let $f(x) = mx + b$, and from the original, \[mx - m^2y - mb = m^2x + mb - my - b - 1\]
-    Comparing coefficients, we see that $m^2 = m$ and $2mb = b+1$ so either $m = 1$ (which gives $f(x) = x+1$) or $m = 0$ (which gives $f \equiv -1$). $\square$
+    This implies $f$ is linear with slope $f(-1) + 1$. Let $f(x) = mx + b$, and
+    from the original, \[mx - m^2y - mb = m^2x + mb - my - b - 1/\]
+    Comparing coefficients, we see that $m^2 = m$ and $2mb = b+1$ so either $m=1$
+    (which gives $f(x) = x+1$) or $m = 0$ (which gives $f \equiv -1$). $\square$
 \end{solution}

@@ -1,10 +1,13 @@
 % January 2022
 
 \begin{problem}[ISL 2018 C1]
-    Let $n\geqslant 3$ be an integer. Prove that there exists a set $S$ of $2n$ positive integers satisfying the following property: For every $m=2,3,...,n$ the set $S$ can be partitioned into two subsets with equal sums of elements, with one of subsets of cardinality $m$.
+    Let $n\geqslant 3$ be an integer. Prove that there exists a set $S$ of $2n$
+    positive integers satisfying the following property: For every $m=2,3,\ldots,n$
+    the set $S$ can be partitioned into two subsets with equal sums of elements,
+    with one of subsets of cardinality $m$.
 \end{problem}
 
-\begin{solution}
+\begin{solution}[Ritwin]
     We first give an example of a solution for $n=3$:
     \[S = \{1, 3, 4, 5, 6, 7\}\]
     For $m=2$, we can split it up into $\{1,3,4,5\} \cup \{6,7\}$\\
@@ -12,13 +15,27 @@
     
     Thus, now we will have $n \geq 4$.
     
-    Consider \[S = \{G_1, G_2, G_3, \ldots, G_{2n-1}, X\}\] where $G_k$ denotes the $k^\textrm{th}$ term of our Fibonacci-like sequence, defined as $G_1 = 69$, $G_2 = 420$, $G_k = G_{k-1} + G_{k-2}$ and \[X = \sum_{k=1}^{2n-4} G_k\] Note that $n \geq 3$ and the Fibonacci numbers are positive, so $S$ is always a set of positive integers.
+    Consider \[S = \{G_1, G_2, G_3, \ldots, G_{2n-1}, X\}\] where $G_k$ denotes
+    the $k^\textrm{th}$ term of our Fibonacci-like sequence, defined as
+    $G_1 = 69$, $G_2 = 420$, $G_k = G_{k-1} + G_{k-2}$ and \[X = \sum_{k=1}^{2n-4} G_k.\]
     
-    Note that \[\sum_{j=1}^k G_j = G_{k+2} - G_2\] (which can be proven easily by induction), so $X = G_{2n-2} - G_2$. Note that for $n \geq 4$, $G_{2n-2} - G_{2n-3} = G_{2n-4} > G_2$ because $2n-4 > 2$ and $G_k$ is a strictly increasing sequence, so our set $S$ does not contain any duplicates (and has size $2n$, as desired).
+    Note that \[\sum_{j=1}^k G_j = G_{k+2} - G_2\] (which can be proven easily
+    by induction), so $X = G_{2n-2} - G_2$. Note that for $n \geq 4$,
+    $G_{2n-2} - G_{2n-3} = G_{2n-4} > G_2$ because $2n-4 > 2$ and $G_k$ is a
+    strictly increasing sequence, so our set $S$ does not contain any duplicates
+    (and has size $2n$, as desired).
     
     Now, we will prove that this works. Let $A$ and $B$ be the two subsets we split $S$ into.
     
-    Consider the $m=2$ case: We split $S$ into $A = \{G_1, G_2, G_3, \ldots G_{2n-2}\} $ and $B = \{G_{2n-1}, X\}$ (so $S = A \cup B$ and $A \cap B = \{\}$), and because $G_{2n-1} = G_{2n-2} + G_{2n-3}$ and our definition of $X$, we can see that this works, and satisfies $m = |B| = 2$.
+    Consider the $m=2$ case: We split $S$ into $A = \{G_1, G_2, G_3, \ldots G_{2n-2}\}$
+    and $B = \{G_{2n-1}, X\}$ (so $S = A \cup B$ and $A \cap B = \{\}$), and
+    because $G_{2n-1} = G_{2n-2} + G_{2n-3}$ and our definition of $X$, we can
+    see that this works, and satisfies $m = |B| = 2$.
     
-    Now, for $m > 2$, we can simply take the solution for $m-1$, and alter it a bit. Take $G_k$ from $B$, where $k$ is as small as possible. Now, move it to $A$, and move $G_{k-1}$ and $G_{k-2}$ from $A$ to $B$. We can see that now, $|B|$ is one more than it previously was, so this works. And note that this procedure can be repeated a total of $n-1$ times, so we end up with a maximum possible $m=n+1$. Because the problem only requires at max $m=n$, we are done. $\square$
+    Now, for $m > 2$, we can simply take the solution for $m-1$, and alter it a
+    bit. Take $G_k$ from $B$, where $k$ is as small as possible. Now, move it to
+    $A$, and move $G_{k-1}$ and $G_{k-2}$ from $A$ to $B$. We can see that now,
+    $|B|$ is one more than it previously was, so this works. And note that this
+    procedure can be repeated a total of $n-1$ times, so we end up with a maximum
+    possible $m=n+1$. Because the problem only requires at max $m=n$, we are done. $\square$
 \end{solution}

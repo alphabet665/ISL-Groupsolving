@@ -1,11 +1,12 @@
 % December 2021
 
 \begin{problem}[ISL 2014 A1]
-    Let $a_0 < a_1 < a_2 \ldots$ be an infinite sequence of positive integers. Prove that there exists a unique integer $n\geq 1$ such that
+    Let $a_0 < a_1 < a_2 \ldots$ be an infinite sequence of positive integers.
+    Prove that there exists a unique integer $n\geq 1$ such that
     \[a_n < \frac{a_0+a_1+a_2+\cdots+a_n}{n} \leq a_{n+1}\]
 \end{problem}
 
-\begin{solution}
+\begin{solution}[Ritwin]
     We need \begin{align*}
     a_n &< \dfrac1n\sum_{i=0}^na_i \leq a_{n+1}\\
     na_n &< a_0+\sum_{i=1}^na_i \leq na_{n+1}\\
@@ -13,12 +14,21 @@
     \end{align*}
     for exactly one integer $n$.
     
-    Now, let $L(n) = \sum_{i=1}^n(a_n-a_i)$, and notice that $L(n+1)-L(n)=n(a_{n+1}-a_n)$. Let $I_n$ denote the interval $(L(n), L(n+1)]$. We must prove that $L(n) < a_0 \leq L(n+1)$ for some $n$, or equivalently that
-    $a_0 \in I_n$ for some $n$.
+    Now, let $L(n) = \sum_{i=1}^n(a_n-a_i)$, and notice that $L(n+1)-L(n)=n(a_{n+1}-a_n)$.
+    Let $I_n$ denote the interval $(L(n), L(n+1)]$. We must prove that
+    $L(n) < a_0 \leq L(n+1)$ for some $n$, or equivalently that $a_0 \in I_n$ for some $n$.
     
-    Notice that the size of our $n^\textrm{th}$ interval is $L(n+1)-L(n) = n(a_{n+1}-a_n) > 0$. Also, $a$ is a sequence of integers, so $a_{n+1}-a_n \geq 1$ which means $L(n+1)-L(n) \geq n$. Notice that $I_n$ covers all positive integers exactly once, because each endpoint is distinct and each interval has nonzero range, as well as the fact that $L(1)=0$. Also, endpoints are also counted exactly once, when they are the right endpoint (because we have left-exclusive, right-inclusive intervals). Therefore, for all sequences $a$, $a_0$ must be in one of our intervals $I_n$, which proves the statement. $\square$
+    Notice that the size of our $n^\textrm{th}$ interval is $L(n+1)-L(n) = n(a_{n+1}-a_n) > 0$.
+    Also, $a$ is a sequence of integers, so $a_{n+1}-a_n \geq 1$ which means
+    $L(n+1)-L(n) \geq n$. Notice that $I_n$ covers all positive integers exactly
+    once, because each endpoint is distinct and each interval has nonzero range,
+    as well as the fact that $L(1)=0$. Also, endpoints are also counted exactly
+    once, when they are the right endpoint (because we have left-exclusive,
+    right-inclusive intervals). Therefore, for all sequences $a$, $a_0$ must be
+    in one of our intervals $I_n$, which proves the statement. $\square$
     
     \begin{remark}
-    We can bound $n \leq \sqrt{2a_0}+1$ because \[a_0 \geq L(n)-L(1) = \displaystyle{\sum_{i=1}^{n-1}(L(i+1)-L(i))} \geq \sum_{i=1}^{n-1} i = \dfrac{n(n-1)}{2}\]
+        We can bound $n \leq \sqrt{2a_0}+1$ because
+        \[a_0 \geq L(n)-L(1) = \sum_{i=1}^{n-1} (L(i+1)-L(i)) \geq \sum_{i=1}^{n-1} i = \frac{n(n-1)}{2}.\]
     \end{remark}
 \end{solution}

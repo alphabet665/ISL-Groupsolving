@@ -10,39 +10,62 @@
     \end{enumerate}
 \end{problem}
 
-\begin{solution}\phantom{}
+\begin{solution}[Ritwin]\phantom{}
     \begin{enumerate}[(a)]
-        \item Note that \[f(n) = \sum_{d \mid n} d \cdot \varphi(n/d) = (\Id * \varphi)(n)\] where $*$ denotes Dirichlet convolution. Thus $f$ is multiplicative since $\Id$ (the identity function; $\Id(n) = n$) and $\varphi$ are both multiplicative functions. $\square$
+        \item Note that \[f(n) = \sum_{d \mid n} d \cdot \varphi(n/d) = (\Id * \varphi)(n)\]
+        where $*$ denotes Dirichlet convolution. Thus $f$ is multiplicative
+        since $\Id$ (the identity function; $\Id(n) = n$) and $\varphi$ are
+        both multiplicative functions. $\square$
         
-        \item Consider when $n = 2^m$. Then, \[f(2^m) = 2^m + \sum_{k=0}^{m-1} 2^{m-k-1} \cdot 2^k = (m+2) \cdot 2^{m-1} = \frac{m+2}{2} \cdot 2^m\] Therefore $x = 2^{2a-2}$ always works.
+        \item Consider when $n = 2^m$. Then,
+        \[f(2^m) = 2^m + \sum_{k=0}^{m-1} 2^{m-k-1} \cdot 2^k = (m+2) \cdot 2^{m-1} = \frac{m+2}{2} \cdot 2^m.\]
+        Therefore $x = 2^{2a-2}$ always works.
         
         \item We claim that all $a = 2^k$, $k \in \ZZ_{\geq0}$ have unique solutions.
         
         \begin{claim*}[1]
-        Any $a$ that is not a power of two has at least two solutions.
+            Any $a$ that is not a power of two has at least two solutions.
         \end{claim*}
         \begin{proof}
-        Note that $g(n) = \frac{f(n)}{n}$ is also a multiplicative function, and that \[g(n) = \frac{f(n)}{n} = \sum_{d \mid n} \frac{d}{n} \varphi\bigg(\frac{n}{d}\bigg) = \sum_{d \mid n} \frac{\varphi(d)}{d}\] Consider when $n = p^k$, then \[g(p^k) = \sum_{d \mid p^k} \frac{\varphi(d)}{d} = 1 + \sum_{j=1}^k \frac{\varphi(p^j)}{p^j} = 1 + k \cdot \bigg(1 - \frac{1}{p}\bigg)\] By setting $k=p$ we get $g(p^p) = p$.
-        
-        Now generally, consider any $n$ that is not a power of two, let $p$ be its largest prime factor (so $p \geq 3$), and let $m = n/p$. Consider that \[g(2^{2n-2}) = n, \qquad g(2^{2m-2} \cdot p^p) = g(2^{2m-2}) \cdot g(p^p) = m \cdot p = n\] Since $2^{2m-2}$ and $p^p$ are obviously coprime, this proves (1).
+            Note that $g(n) = \frac{f(n)}{n}$ is also a multiplicative function, and that
+            \[g(n) = \frac{f(n)}{n} = \sum_{d \mid n} \frac{d}{n} \varphi\bigg(\frac{n}{d}\bigg) = \sum_{d \mid n} \frac{\varphi(d)}{d}\] Consider when $n = p^k$, then \[g(p^k) = \sum_{d \mid p^k} \frac{\varphi(d)}{d} = 1 + \sum_{j=1}^k \frac{\varphi(p^j)}{p^j} = 1 + k \cdot \bigg(1 - \frac{1}{p}\bigg)\]
+            By setting $k=p$ we get $g(p^p) = p$.
+            
+            Now generally, consider any $n$ that is not a power of two, let $p$ be
+            its largest prime factor (so $p \geq 3$), and let $m = n/p$. Consider that
+            \[g(2^{2n-2}) = n, \qquad g(2^{2m-2} \cdot p^p) = g(2^{2m-2}) \cdot g(p^p) = m \cdot p = n.\]
+            Since $2^{2m-2}$ and $p^p$ are obviously coprime, this proves (1).
         \end{proof}
         
         \begin{claim*}[2]
-        Any $a$ that is a power of two has exactly one solution.
+            Any $a$ that is a power of two has exactly one solution.
         \end{claim*}
         \begin{proof}
-        $g(x) = 1$ is only satisfied when $x = 1$, which is obvious from any of our expressions above; for example $g(n) = \sum_{d \mid n} \varphi(d)/d \geq 1 + \varphi(n)/n > 1$ for $n > 1$. Now we will consider $a \geq 2$.
-        
-        Consider if $g(x) = a$, and $x$ is not a power of two (when it is, there is only one way: $x = 2^{2a-2}$); let $x = 2^k \cdot m$. Note that \[g(x) = g(2^k) \cdot g(m) = \frac{k+2}{2} \cdot g(m)\]
-        
-        \begin{claim*}[3]
-        If $m$ is an odd number, then the numerator of $g(m)$ is an odd number.
-        \end{claim*}
-        \begin{proof}
-        If we can prove this for all odd prime powers, the multiplicativity of $g$ proves it for all numbers $m$. Consider any odd prime $p$ and positive integer $k$. Note that \[g(p^k) = \frac{p + k(p-1)}{p}\] In the numerator, $p$ is odd and $p-1$ is even, so no matter what $k$ is, the numerator is always odd. Finally, even if there is simplification, an odd number dividing an odd number yields an odd number, so we are done.
-        \end{proof}
-        
-        For $g(x)$ to be a power of two, we need the numerator of $g(m)$ to be a power of two. However since the numerator of $g(m)$ is odd by (3), it must be $1$, which implies $m = 1$. Thus $x$ is a power of two, but we have already dealt with this case, so there are no other solutions except $x = 2^{2a-2}$.
+            $g(x) = 1$ is only satisfied when $x = 1$, which is obvious from any of
+            our expressions above; for example $g(n) = \sum_{d \mid n} \varphi(d)/d \geq 1 + \varphi(n)/n > 1$
+            for $n > 1$. Now we will consider $a \geq 2$.
+            
+            Consider if $g(x) = a$, and $x$ is not a power of two (when it is,
+            there is only one way: $x = 2^{2a-2}$); let $x = 2^k \cdot m$. Note
+            that \[g(x) = g(2^k) \cdot g(m) = \frac{k+2}{2} \cdot g(m)\]
+            
+            \begin{claim*}[3]
+                If $m$ is an odd number, then the numerator of $g(m)$ is an odd number.
+            \end{claim*}
+            \begin{proof}
+                If we can prove this for all odd prime powers, the multiplicativity of
+                $g$ proves it for all numbers $m$. Consider any odd prime $p$ and positive
+                integer $k$. Note that \[g(p^k) = \frac{p + k(p-1)}{p}\] In the numerator,
+                $p$ is odd and $p-1$ is even, so no matter what $k$ is, the numerator
+                is always odd. Finally, even if there is simplification, an odd number
+                dividing an odd number yields an odd number, so we are done.
+            \end{proof}
+            
+            For $g(x)$ to be a power of two, we need the numerator of $g(m)$ to be
+            a power of two. However since the numerator of $g(m)$ is odd by (3), it
+            must be $1$, which implies $m = 1$. Thus $x$ is a power of two, but we
+            have already dealt with this case, so there are no other solutions
+            except $x = 2^{2a-2}$.
         \end{proof}
     \end{enumerate}
 \end{solution}

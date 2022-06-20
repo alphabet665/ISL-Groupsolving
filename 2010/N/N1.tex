@@ -1,9 +1,15 @@
 % May 2022
 
 \begin{problem}[ISL 2010 N1]
-    Find the least positive integer $n$ for which there exists a set $\{s_1, s_2, \ldots, s_n\}$ of $n$ distinct positive integers such that \[\bigg(1-\frac{1}{s_1}\bigg) + \bigg(1-\frac{1}{s_2}\bigg) + \cdots + \bigg(1-\frac{1}{s_n}\bigg) = \frac{51}{2010}\]
+    Find the least positive integer $n$ for which there exists a set
+    $\{s_1, s_2, \ldots, s_n\}$ of $n$ distinct positive integers such that
+    \[\bigg(1-\frac{1}{s_1}\bigg) + \bigg(1-\frac{1}{s_2}\bigg) + \cdots + \bigg(1-\frac{1}{s_n}\bigg) = \frac{51}{2010}.\]
 \end{problem}
 
-\begin{solution}
-    Note that if $n \leq 38$, then \[\bigg(1-\frac{1}{s_1}\bigg) + \bigg(1-\frac{1}{s_2}\bigg) + \cdots + \bigg(1-\frac{1}{s_n}\bigg) \geq \frac12 \cdot \frac23 \cdots \frac{38}{39} = \frac{1}{39} > \frac{51}{2010}\] so it is impossible. The answer is $\boxed{n=39}$ since \[\frac12 \cdot \frac23 \cdots \frac{32}{33} \cdot \frac{34}{35} \cdot \frac{35}{36} \cdots \frac{39}{40} \cdot \frac{66}{67} = \frac{51}{2010}\] as intended. $\square$
+\begin{solution}[Ritwin]
+    Note that if $n \leq 38$, then
+    \[\bigg(1-\frac{1}{s_1}\bigg) + \bigg(1-\frac{1}{s_2}\bigg) + \cdots + \bigg(1-\frac{1}{s_n}\bigg) \geq \frac12 \cdot \frac23 \cdots \frac{38}{39} = \frac{1}{39} > \frac{51}{2010}\]
+    so it is impossible. The answer is $\boxed{n=39}$ since
+    \[\frac12 \cdot \frac23 \cdots \frac{32}{33} \cdot \frac{34}{35} \cdot \frac{35}{36} \cdots \frac{39}{40} \cdot \frac{66}{67} = \frac{51}{2010}\]
+    as intended. $\square$
 \end{solution}

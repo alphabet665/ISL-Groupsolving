@@ -1,11 +1,20 @@
 % January 2022
 
 \begin{problem}[ISL 2006 G1]
-    Let $ABC$ be triangle with incenter $I$. A point $P$ in the interior of the triangle satisfies\[\angle PBA+\angle PCA = \angle PBC+\angle PCB.\]Show that $AP \geq AI$, and that equality holds if and only if $P=I$.
+    Let $ABC$ be triangle with incenter $I$. A point $P$ in the interior of the
+    triangle satisfies \[\angle PBA+\angle PCA = \angle PBC+\angle PCB.\]
+    Show that $AP \geq AI$, and that equality holds if and only if $P=I$.
 \end{problem}
 
-\begin{solution}
-    Some angle chasing yields that the condition is equivalent to $\angle BPC = 90\dg + \angle BAI$. Now consider the circumcircle of $\triangle BIC$, denote it $\omega$. We have $\angle BIC = 180\dg - \frac12\widehat{BC}$ and some more angle chasing leads to $\angle BIC = 90\dg + \frac12 \angle BAC = 90\dg + \angle BAI$.
+\begin{solution}[Ritwin]
+    Some angle chasing yields that the condition is equivalent to
+    $\angle BPC = 90\dg + \angle BAI$. Now consider the circumcircle of
+    $\triangle BIC$, denote it $\omega$. We have $\angle BIC = 180\dg - \frac12\widehat{BC}$
+    and some more angle chasing leads to $\angle BIC = 90\dg + \frac12 \angle BAC = 90\dg + \angle BAI$.
     
-    Thus, we realize that for any $P$ inside $\omega$, $\angle BPC > 90\dg + \frac12 \angle BAC$, and the reverse inequality is true for $P$ outside $\omega$. So the locus of possible $P$ is arc $\widehat{BIC}$ (exclusive ends). All that remains is to prove that $A$, $I$, and $O$ are collinear. However this is a part of the Incenter-Excenter Lemma, so we are done. $\square$
+    Thus, we realize that for any $P$ inside $\omega$, $\angle BPC > 90\dg + \frac12 \angle BAC$,
+    and the reverse inequality is true for $P$ outside $\omega$. So the locus
+    of possible $P$ is arc $\widehat{BIC}$ (exclusive ends). All that remains
+    is to prove that $A$, $I$, and $O$ are collinear. However this is a part of
+    the Incenter-Excenter Lemma, so we are done. $\square$
 \end{solution}

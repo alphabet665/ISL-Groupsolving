@@ -5,26 +5,42 @@
     \[1+2^x+2^{2x+1}= y^2\]
 \end{problem}
 
-\begin{solution}
+\begin{solution}[Ritwin]
     We claim the only solutions are $(x, y) \in \{(0, \pm2), (9, \pm23)\}$. The proof follows.
     
-    First, we check whether there are any solutions with $x \leq 0$. For $x < -1$, notice that the LHS is an odd multiple of $2^{2x+1}$, and thus its square root cannot be an integer. Now we can check that $x=-1$ doesn't work, but $x=0$ does (and $y=\pm2$). From now we will only consider positive $x$.
+    First, we check whether there are any solutions with $x \leq 0$. For $x<-1$,
+    notice that the LHS is an odd multiple of $2^{2x+1}$, and thus its square
+    root cannot be an integer. Now we can check that $x=-1$ doesn't work, but
+    $x=0$ does (and $y=\pm2$). From now we will only consider positive $x$.
     
-    Note that if $(x, y)$ is a solution, $(x, -y)$ is as well, so we will only look for solutions with $y \geq 0$ and then take $(x, \pm y)$ as our solutions.
+    Note that if $(x, y)$ is a solution, $(x, -y)$ is as well, so we will only
+    look for solutions with $y \geq 0$ and then take $(x, \pm y)$ as our solutions.
     
-    It is obvious that the LHS is odd so $y$ must be odd. We let $y = 2k+1$ for nonnegative $k$, and substitute to find \[2^{x-2}(1 + 2^{x+1}) = k(k+1)\]
-    The key idea here is to notice that all those factors of two on the LHS from $2^{x-2}$ can only go into \textit{one} of $k$, $k+1$, which also means either $k$ or $k+1$ is an \textit{odd} multiple of $2^{x-2}$. Thus we split it into two cases:
+    It is obvious that the LHS is odd so $y$ must be odd. We let $y = 2k+1$ for
+    nonnegative $k$, and substitute to find \[2^{x-2}(1 + 2^{x+1}) = k(k+1)\]
+    The key idea here is to notice that all those factors of two on the LHS from
+    $2^{x-2}$ can only go into \textit{one} of $k$, $k+1$, which also means
+    either $k$ or $k+1$ is an \textit{odd} multiple of $2^{x-2}$. Thus we split
+    it into two cases:
     
     \textbf{Case 1.} $k = 2^{x-2} \cdot n$ and the equation reduces to
     \[1 + 2^{x+1} = n(2^{x-2} \cdot n + 1)\]
-    Obviously for $n \geq 3$, the LHS is larger than the RHS, and we know $n$ is odd so we can only have $n=1$ as a possibility. However plugging it in yields no solutions for this case.
+    Obviously for $n \geq 3$, the LHS is larger than the RHS, and we know $n$
+    is odd so we can only have $n=1$ as a possibility. However plugging it in
+    yields no solutions for this case.
     
     \textbf{Case 2.} $k+1 = 2^{2z-2} \cdot n$ and the equation reduces to \begin{align*}
-    1 + 2^{x+1} &= n(2^{x-2} \cdot n - 1)\\
-    n+1 &= 2^{x-2}(n^2-8)\\
-    \frac{n+1}{n^2-8} &= 2^{x-2}
+        1 + 2^{x+1} &= n(2^{x-2} \cdot n - 1)\\
+        n+1 &= 2^{x-2}(n^2-8)\\
+        \frac{n+1}{n^2-8} &= 2^{x-2}
     \end{align*}
-    If we let $f(n) = \frac{n+1}{n^2-8}$, we see that for $n \geq 4$, \[0 < f(n) < 1 \Longleftrightarrow n > -1\mathrm{~and~}n^2-n-9 > 0\] always holds.
+    If we let $f(n) = \frac{n+1}{n^2-8}$, we see that for $n \geq 4$,
+    \[0 < f(n) < 1 \Longleftrightarrow n > -1\mathrm{~and~}n^2-n-9 > 0\]
+    always holds.
     
-    Observe that $2^{x-2} \geq 1$ for all positive $x$ (except $x=1$ but we can verify it yields no solutions), which implies that any possible solution must have $n < 4$. for $z > 1$, and checking we find that $z=1$ is not a solution. Now we can check that $n \in \{0, 1, 2\}$ yield no solutions, but $n = 3$ does, specifically $(x, y) = (9, 23)$. $\square$
+    Observe that $2^{x-2} \geq 1$ for all positive $x$ (except $x=1$ but we can
+    verify it yields no solutions), which implies that any possible solution
+    must have $n < 4$. for $z > 1$, and checking we find that $z=1$ is not a
+    solution. Now we can check that $n \in \{0, 1, 2\}$ yield no solutions, but
+    $n = 3$ does, specifically $(x, y) = (9, 23)$. $\square$
 \end{solution}

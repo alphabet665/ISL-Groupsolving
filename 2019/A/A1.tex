@@ -1,11 +1,13 @@
 % December 2021
 
 \begin{problem}[ISL 2019 A1]
-    Let $\ZZ$ be the set of integers. Determine all functions $f: \ZZ \rightarrow \ZZ$ such that, for all integers $a$ and $b$, \[f(2a)+2f(b)=f(f(a+b))\]
+    Let $\ZZ$ be the set of integers. Determine all functions $f : \ZZ \to \ZZ$
+    such that, for all integers $a$ and $b$, \[f(2a)+2f(b)=f(f(a+b)).\]
 \end{problem}
 
-\begin{solution}
-    We claim that the solutions are $f \equiv 0$ and $f(x) = 2x+c$ for any integer $c$. The proof follows.
+\begin{solution}[Ritwin]
+    We claim that the solutions are $f \equiv 0$ and $f(x) = 2x+c$ for any
+    integer $c$. The proof follows.
     
     Consider taking $(a, b) = (a_1, c-a_1)$ and $(a, b) = (a_2, c-a_2)$:
     \[f(2a_1) + 2f(c-a_1) = f(f(c))\]
@@ -15,23 +17,34 @@
     \[f(2a_1) - f(2a_2) = 2f(c-a_2) - 2f(c-a_1)\]
     Taking $c = 2a_1+a_2$ and then $x_1 = 2a_1$, $x_2 = 2a_2$, we see that
     \[f\!\left(\frac{x_1+x_2}{2}\right) = \frac{f(x_1) + f(x_2)}{2}\]
-    which implies that $f$ is linear on even integers, and we can patch the gaps by taking $x_2-x_1 = 2$ to see that $f$ is linear on all integers.
+    which implies that $f$ is linear on even integers, and we can patch the
+    gaps by taking $x_2-x_1 = 2$ to see that $f$ is linear on all integers.
     
-    Note: Another way to see that it's linear from our equation here is fixing $f(0)$ and $f(2)$ (which must be the same parity because $f$'s range is $\mathbb{Z}$) and proving inductively that each of $f(2k)$ for $k \geq 2$ are fixed, and then proving inductively that each of $f(-2k)$ for $k \geq 1$ are fixed. Finally, we see that every $f(2k+1)$ is also fixed by considering $(x_1, x_2) = (2k, 2k+2)$. Thus, $f$ is linear on all integers.
+    Note: Another way to see that it's linear from our equation here is fixing
+    $f(0)$ and $f(2)$ (which must be the same parity because $f$'s range is $\ZZ$)
+    and proving inductively that each of $f(2k)$ for $k \geq 2$ are fixed, and
+    then proving inductively that each of $f(-2k)$ for $k \geq 1$ are fixed.
+    Finally, we see that every $f(2k+1)$ is also fixed by considering $(x_1, x_2) = (2k, 2k+2)$.
+    Thus, $f$ is linear on all integers.
     
     Now we let $f(x) = mx+c$ and plug this into our original relation:
     \begin{align}
-    f(2a) + 2f(b) &= f(f(a+b))\nonumber\\
-    2am + c + 2bm + 2c &= am^2 + bm^2 + cm + c\nonumber\\
-    (a+b) \cdot (2m-m^2) &= c(m-2) \tag{1}
+        f(2a) + 2f(b) &= f(f(a+b))\nonumber\\
+        2am + c + 2bm + 2c &= am^2 + bm^2 + cm + c\nonumber\\
+        (a+b) \cdot (2m-m^2) &= c(m-2) \tag{1}
     \end{align}
-    Note that if $2m-m^2$ is nonzero, the LHS can vary while the RHS stays constant, which is impossible. Thus we have $2m-m^2=0$ so $m \in \{0,2\}$. We split this into two cases to find all the solutions:
+    Note that if $2m-m^2$ is nonzero, the LHS can vary while the RHS stays
+    constant, which is impossible. Thus we have $2m-m^2=0$ so $m \in \{0,2\}$.
+    We split this into two cases to find all the solutions:
     
     \textbf{Case 1: } $m = 0$, so $f(x) = c$. Plugging this into (1), we get
     \[0 = c(-2)\]
-    so we must have $c=0$. Thus $f(x) = 0$ or $f \equiv 0$ is a solution, and we can verify that it works.
+    so we must have $c=0$. Thus $f(x) = 0$ or $f \equiv 0$ is a solution, and
+    we can verify that it works.
     
     \textbf{Case 2: } $m = 2$, so $f(x) = 2x+c$. Plugging this into (1), we get
     \[0 = 0\]
-    and thus it always works arbitrary of $c$. Thus, $f(x) = 2x+c$ for $c \in \mathbb{Z}$ is an infinite family of solutions, and we can plug this in to our original given relation to verify that it does indeed work.
+    and thus it always works arbitrary of $c$. Thus, $f(x) = 2x+c$ for $c \in \ZZ$
+    is an infinite family of solutions, and we can plug this in to our original
+    given relation to verify that it does indeed work. $\square$
 \end{solution}

@@ -1,15 +1,25 @@
 % May 2022
 
 \begin{problem}[ISL 2017 C1]
-    A rectangle $\mathcal{R}$ with odd integer side lengths is divided into small rectangles with integer side lengths. Prove that there is at least one among the small rectangles whose distances from the four sides of $\mathcal{R}$ are either all odd or all even.
+    A rectangle $\mathcal{R}$ with odd integer side lengths is divided into
+    small rectangles with integer side lengths. Prove that there is at least
+    one among the small rectangles whose distances from the four sides of
+    $\mathcal R$ are either all odd or all even.
 \end{problem}
 
-\begin{solution}
-    Call a subrectangle \textit{good} if its distance from each of the four sides of $\mathcal R$ are either all odd or all even.
+\begin{solution}[Ritwin]
+    Call a subrectangle \textit{good} if its distance from each of the four
+    sides of $\mathcal R$ are either all odd or all even.
     
-    Overlay onto the rectangle's grid squares a checkerboard, where each corner of $\mathcal R$ is black. Note that there is exactly one more black square than white squares.
+    Overlay onto the rectangle's grid squares a checkerboard, where each corner
+    of $\mathcal R$ is black. Note that there is exactly one more black square
+    than white squares.
     
-    Note that if a subrectangle is good, it also has exactly one more black square than white. But note that if the subrectangle is not good, then it either has the same number of black and white squares, or it has exactly one more white square than black.
+    Note that if a subrectangle is good, it also has exactly one more black
+    square than white. But note that if the subrectangle is not good, then it
+    either has the same number of black and white squares, or it has exactly
+    one more white square than black.
     
-    This immediately proves that a good subrectangle must exist, as if it didn't, it is impossible to have one more black square than white. $\square$
+    This immediately proves that a good subrectangle must exist, as if it
+    didn't, it is impossible to have one more black square than white. $\square$
 \end{solution}
