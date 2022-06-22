@@ -1,0 +1,13 @@
+% June 22, 2022
+
+\begin{problem}[ISL 2002 N3]
+    Let $p_1,p_2,\ldots,p_n$ be distinct primes greater than $3$.
+    Show that $2^{p_1p_2\cdots p_n}+1$ has at least $4^n$ divisors.
+\end{problem}
+
+\begin{solution}[Ritwin]
+    Let $N = \{p_1,p_2,\ldots,p_n\}$, and note that if $m \mid N$, then $2^m+1 \mid 2^N+1$ since
+    \[2^N+1 = (2^m+1-1)^{N/m}+1 \equiv (-1)^{N/m}+1 \equiv 0 \pmod{2^m+1}\]
+    as the primes are odd. By Zsigmondy, any factor $m \mid N$ introduces a new prime factor,
+    so \[\tau(2^N+1) \geq 2^{2^n} \geq 4^n = 2^{2n}\] for all $n$ since $2^n \geq 2n$. $\square$
+\end{solution}
